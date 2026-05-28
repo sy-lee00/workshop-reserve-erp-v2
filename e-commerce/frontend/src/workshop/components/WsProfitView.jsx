@@ -15,7 +15,7 @@ function WsProfitView({ workshopId }) {
     setLoading(true);
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/profit/view`", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/profit/view`, {
         workshopId: workshopId,
       })
       .then((res) => {

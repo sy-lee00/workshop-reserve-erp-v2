@@ -93,7 +93,7 @@ function WorkshopHome({ ownerId, role, name, monthly }) {
           }}
         >
           <img
-            src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/btn/qna_btn.png`"
+            src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/btn/qna_btn.png`
             alt="관리자문의"
           />
         </button>

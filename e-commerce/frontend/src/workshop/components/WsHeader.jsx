@@ -13,7 +13,7 @@ function WsHeader({ ownerId }) {
       <div className="logo-section">
         <Link to="/workshop" className="logo">
           <img
-            src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/logo/dia_logo.png`"
+            src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/logo/dia_logo.png`
             alt="로고"
           />
         </Link>
@@ -23,7 +23,7 @@ function WsHeader({ ownerId }) {
         <span className="user-greeting">{user?.name} 님</span>
         <button className="logout-button" onClick={logout}>
           <img
-            src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/btn/logout_btn.png`"
+            src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/btn/logout_btn.png`
             alt="로그아웃"
           />
         </button>

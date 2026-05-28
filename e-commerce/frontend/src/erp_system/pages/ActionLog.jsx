@@ -28,7 +28,7 @@ function ActionLog() {
   useEffect(() => {
     setLoading(true);
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/admin/action-log`", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/admin/action-log`, {
         targetType: targetType === "ALL" ? null : targetType,
         keyword: keyword,
         page: currentPage,
@@ -55,7 +55,7 @@ function ActionLog() {
 
     if (targetType === "SETTLEMENT") {
       axios
-        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/settlement/one`", {
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/settlement/one`, {
           settlementId: targetId,
         })
         .then((res) => {
@@ -69,7 +69,7 @@ function ActionLog() {
     }
     if (targetType === "PROGRAM") {
       axios
-        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/program/detail`", null, {
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/program/detail`, null, {
           params: { programId: targetId },
         })
         .then((res) => {
@@ -80,7 +80,7 @@ function ActionLog() {
     }
     if (targetType === "WORKSHOP") {
       axios
-        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/workshop/detail`", null, {
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/workshop/detail`, null, {
           params: { workshopId: targetId },
         })
         .then((res) => {

@@ -32,7 +32,7 @@ function MyFollow({ userId }) {
   const clickFollowBtn = async (followId, active) => {
     try {
       await axios.post(
-        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/follow/update-follow`",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/follow/update-follow`,
         null,
         {
           params: { followId: followId, active: !active },

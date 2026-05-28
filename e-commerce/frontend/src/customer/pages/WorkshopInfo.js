@@ -49,7 +49,7 @@ function WorkshopInfo() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/workshop-info`", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/workshop-info`, {
         params: { workshopId: id, userId: userId },
       })
       .then((res) => {
@@ -83,7 +83,7 @@ function WorkshopInfo() {
     };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/follow/workshop-follow`", followData)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/follow/workshop-follow`, followData)
       .then(() => {
         // 팔로우 상태 변경
         setfollowing((prev) => !prev);
@@ -111,7 +111,7 @@ function WorkshopInfo() {
     const wishData = { userId, programId };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/wish/wish-program`", wishData)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/wish/wish-program`, wishData)
       .then((res) => {
         const active = res.data; // 서버에서 true/false 반환
         if (active) {

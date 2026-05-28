@@ -11,7 +11,7 @@ function RejectReason({ type, id, onClose, ownerId, onSuccess }) {
     if (!id) return;
     if (type === "workshop") {
       axios
-        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/reject-reason`", {
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/reject-reason`, {
           workshopId: id,
         })
         .then((res) => {
@@ -20,7 +20,7 @@ function RejectReason({ type, id, onClose, ownerId, onSuccess }) {
         .catch((err) => console.log(err));
     } else if (type === "program") {
       axios
-        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/program/reject-reason`", {
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/program/reject-reason`, {
           programId: id,
         })
         .then((res) => {

@@ -12,7 +12,7 @@ function QnaCardHeader({ toggleDetail, index, qna }) {
     e.stopPropagation();
 
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/mypage`", {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/mypage`, {
         params: { userId: qna.userId },
       });
 

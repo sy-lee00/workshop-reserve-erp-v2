@@ -86,7 +86,7 @@ function ReservationInfo({ userId }) {
     }
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/reservation/add-reservation`", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/reservation/add-reservation`, data)
       .then((res) => {
         if (res.data) {
           setReservationId(res.data.reservationId);
@@ -107,7 +107,7 @@ function ReservationInfo({ userId }) {
     }
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/payment/add-payment`", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/payment/add-payment`, {
         reservationId: reservationId,
         method,
         amount,

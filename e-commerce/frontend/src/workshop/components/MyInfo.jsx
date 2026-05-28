@@ -54,7 +54,7 @@ function MyInfo({ ownerId }) {
     }
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/owner-modify`", formData, {})
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/owner-modify`, formData, {})
       .then((res) => {
         logout();
         alert("정보가 수정되었습니다. 다시 로그인해 주세요.");

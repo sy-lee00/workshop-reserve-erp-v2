@@ -23,7 +23,7 @@ function MessageForm({ idList, title, workshopId, programId, onClose }) {
     };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/send/message`", payload)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/send/message`, payload)
       .then(() => {
         alert("알림이 발송되었습니다!");
         setMessage("");

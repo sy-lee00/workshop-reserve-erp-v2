@@ -36,7 +36,7 @@ function ModifyAdminQna({ userId, onClose, qna }) {
     if (!window.confirm("문의를 수정하시겠습니까?")) return;
 
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-qna/update-qna`", {
+      await axios.put(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-qna/update-qna`, {
         userId,
         qnaAdminId: qna.qnaAdminId, // 어떤 QnA 수정할지 식별
         title: form.title,

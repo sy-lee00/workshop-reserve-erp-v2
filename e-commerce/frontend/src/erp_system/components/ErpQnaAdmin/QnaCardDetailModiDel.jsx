@@ -18,7 +18,7 @@ function QnaCardDetailModiDel({
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/qna-admin/admin-answer-delete`",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/qna-admin/admin-answer-delete`,
         {
           qnaAdminId: qna.qnaAdminId,
           title: qna.title,

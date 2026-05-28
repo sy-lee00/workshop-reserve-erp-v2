@@ -16,7 +16,7 @@ function WorkshopProfit({ ownerId, monthly }) {
     }
 
     axios
-      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/home`", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/home`, {
         params: { ownerId: ownerId },
       })
       .then((res) => setWorkshops(res.data))

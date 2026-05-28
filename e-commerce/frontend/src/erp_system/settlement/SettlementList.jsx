@@ -16,7 +16,7 @@ function SettlementView({ adminId }) {
     if (activeTab === "completed") statusParam = filter;
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/settlement/view`", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/settlement/view`, {
         status: statusParam,
       })
       .then((res) => {

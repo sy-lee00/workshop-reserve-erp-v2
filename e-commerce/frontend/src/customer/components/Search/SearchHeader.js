@@ -9,7 +9,7 @@ function SearchHeader() {
         <div className="header-left">
           <Link to="/" className="header-title">
             <img
-              src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/logo/dia_logo.png`"
+              src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/logo/dia_logo.png`
               alt="로고"
             />
           </Link>

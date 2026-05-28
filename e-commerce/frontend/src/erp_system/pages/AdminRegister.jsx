@@ -35,7 +35,7 @@ function AdminRegister() {
     };
 
     const getList = () => {
-        axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/admin/list`")
+        axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/admin/list`)
             .then((res) => setList(res.data))
             .catch((err) => console.error(err));
     };
@@ -92,7 +92,7 @@ function AdminRegister() {
         }
 
         axios
-            .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/admin/update`", editData, {
+            .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/admin/update`, editData, {
                 headers: { 'Content-Type': 'application/json' }
             })
             .then((res) => {
@@ -117,7 +117,7 @@ function AdminRegister() {
         if (!window.confirm("정말 삭제하시겠습니까?")) return;
 
         axios
-            .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/admin/delete`", {
+            .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/admin/delete`, {
                 adminRoleId: adminRoleId,
                 userId :userId,
             })

@@ -32,7 +32,7 @@ function MyNotification({ userId }) {
 
     const fetchMyNotifications = () => {
       axios
-        .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-notification`", {
+        .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-notification`, {
           params: {
             userId,
             page: currentPage,
@@ -75,7 +75,7 @@ function MyNotification({ userId }) {
     if (notification && !notification.viewed) {
       axios
         .post(
-          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/update-notification?id=`" +
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/update-notification?id=` +
             notification.id
         )
         .then(() => {
@@ -120,7 +120,7 @@ function MyNotification({ userId }) {
 
     axios
       .post(
-        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/update-notifications`",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/update-notifications`,
         selectedIds
       )
       .then((res) => {
@@ -157,7 +157,7 @@ function MyNotification({ userId }) {
 
     axios
       .post(
-        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/delete-notifications`",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/delete-notifications`,
         selectedIds
       )
       .then((res) => {

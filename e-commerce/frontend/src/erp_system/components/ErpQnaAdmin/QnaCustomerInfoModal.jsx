@@ -17,7 +17,7 @@ function QnaCustomerInfoModal({ userDetail, isModalOpen, setIsModalOpen }) {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        setCopyMessage(`"${text}" 복사됨`);
+        setCopyMessage(`${text}" 복사됨`);
         setTimeout(() => setCopyMessage(""), 1500);
       })
       .catch(() => {

@@ -40,7 +40,7 @@ function WorkshopAdd({ ownerId }) {
     if (thumb) formData.append("file", thumb);
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/ws-insert`", formData, {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/ws-insert`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -52,7 +52,7 @@ function WorkshopAdd({ ownerId }) {
     <div className="ws-workshop-form-container">
       <div className="ws-split-left">
         <img
-          src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/logo/dia_for_owner.png`"}
+          src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/logo/dia_for_owner.png`}
           alt="D.I.A Logo"
           className="ws-logo-icon"
         />

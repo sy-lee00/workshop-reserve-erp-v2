@@ -13,7 +13,7 @@ function WorkshopAll({ userId }) {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/home`")
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/home`)
       .then((res) => {
         setWorkshops(res.data.workshops);
       })
@@ -22,7 +22,7 @@ function WorkshopAll({ userId }) {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/follow/tag`")
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/follow/tag`)
       .then((res) => {
         // console.log("태그 응답:", res.data);
         // { workshopId: 1, categories: "도자기,핸드메이드" } → 형태를 map으로 변환

@@ -77,7 +77,7 @@ function ProgramForm({
     }
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/program/add`", formData, {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/program/add`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -102,7 +102,7 @@ function ProgramForm({
     };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/program/modi`", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/program/modi`, data)
       .then((res) => {
         alert("성공적으로 수정되었습니다.");
         onClose();

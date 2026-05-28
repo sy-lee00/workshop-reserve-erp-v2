@@ -13,7 +13,7 @@ function Review({ workshopId, programId }) {
     };
 
     axios
-      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/review`", { params: dto })
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/review`, { params: dto })
       .then((res) => setReviews(res.data))
       .catch((err) => console.log(err));
   }, [workshopId, programId]);

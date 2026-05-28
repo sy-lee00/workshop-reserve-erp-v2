@@ -19,14 +19,14 @@ function WorkshopList({ ownerId }) {
   useEffect(() => {
     if (!ownerId) return;
     axios
-      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/home`", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/home`, {
         params: { ownerId: ownerId },
       })
       .then((res) => {
         setWorkshops(res.data);
         res.data.forEach((w) => {
           axios
-            .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/notification`", {
+            .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/notification`, {
               params: { workshopId: w.workshopId },
             })
             .then((res2) => {
@@ -50,7 +50,7 @@ function WorkshopList({ ownerId }) {
 
   const readMark = (notificationId, workshopId) => {
     axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/notification/read`", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/notification/read`, {
         notificationId,
       })
       .then(() => {

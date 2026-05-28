@@ -24,7 +24,7 @@ function FindPasswordPage() {
             aria-label="뒤로 가기"
             >
                 <img 
-                    src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/btn/left-arrow-icon.png`"
+                    src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/btn/left-arrow-icon.png`
                     alt="뒤로가기 아이콘"
                     className={styles.backIcon} 
                 />

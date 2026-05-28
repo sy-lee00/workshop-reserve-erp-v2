@@ -24,7 +24,7 @@ function AddAdminQna({ userId, onClose }) {
     // 등록 전 확인창
     if (!window.confirm("관리자에게 문의를 등록하시겠습니까?")) return;
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-qna/insert-qna`", {
+      await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-qna/insert-qna`, {
         userId,
         title: form.title,
         content: form.content,

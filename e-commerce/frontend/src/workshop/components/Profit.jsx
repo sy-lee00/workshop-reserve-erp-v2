@@ -15,7 +15,7 @@ function Profit({ ownerId, workshopId, programId, monthly }) {
       setLoading(true);
       setError(null);
 
-      const url = `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/profit/`";
+      const url = `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/profit/`;
       let profitInfo = {};
       let endpoint = "";
 

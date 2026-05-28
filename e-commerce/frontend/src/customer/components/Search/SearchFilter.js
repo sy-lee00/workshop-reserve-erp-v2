@@ -29,7 +29,7 @@ function SearchFilter({ filters, setFilters }) {
   // 카테고리 데이터 불러오기
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/home`")
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/home`)
       .then((res) => {
         setCategories(res.data.categories);
       })

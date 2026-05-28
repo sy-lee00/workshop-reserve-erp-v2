@@ -22,7 +22,7 @@ function OwnerNotification({ ownerId }) {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-notification`", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-notification`, {
         params: {
           userId: ownerId,
           page: currentPage,
@@ -91,7 +91,7 @@ function OwnerNotification({ ownerId }) {
 
     axios
       .post(
-        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/update-notifications`",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/update-notifications`,
         selectedIds
       )
       .then(() =>
@@ -118,7 +118,7 @@ function OwnerNotification({ ownerId }) {
 
     axios
       .post(
-        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/delete-notifications`",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/delete-notifications`,
         selectedIds
       )
       .then((res) =>
