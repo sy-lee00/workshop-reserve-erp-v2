@@ -62,7 +62,7 @@ function NotificationModal({ notifications, setNotifications, onClose }) {
   const readMessage = (id) => {
     axios
       .post(
-        `http://localhost:9090/customer/notification/update-notification?id=${id}`
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/notification/update-notification?id=${id}`
       )
       .then(() => {
         // 알림 상태 업데이트

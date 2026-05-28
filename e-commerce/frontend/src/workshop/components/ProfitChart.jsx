@@ -119,7 +119,7 @@ function ProfitChart({ type, workshopId, monthly, programId, onClose }) {
 
       try {
         const res = await axios.post(
-          `http://localhost:9090${endpoint}`,
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`${endpoint}`,
           requestBody
         );
         const receivedData = Array.isArray(res.data)

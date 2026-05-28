@@ -37,7 +37,7 @@ function WorkshopApproval({ userId }) {
 
   const searchWorkshop = () => {
     axios
-      .get("http://localhost:9090/erp-system/workshop/list", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/workshop/list`", {
         params: {
           filter,
           keyword,
@@ -70,7 +70,7 @@ function WorkshopApproval({ userId }) {
   const openModal = async (id) => {
     try {
       const res = await axios.post(
-        "http://localhost:9090/erp-system/workshop/detail",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/workshop/detail`",
         null,
         { params: { workshopId: id } }
       );
@@ -101,7 +101,7 @@ function WorkshopApproval({ userId }) {
     };
 
     axios
-      .post("http://localhost:9090/erp-system/workshop/update-approved", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/workshop/update-approved`", data)
       .then((res) => {
         if (approvedType === "승인") {
           toast.success("승인이 완료되었습니다.");

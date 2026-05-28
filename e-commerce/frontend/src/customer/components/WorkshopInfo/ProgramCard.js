@@ -30,7 +30,7 @@ function ProgramCard({ programs, workshop, clickWishBtn, countWish }) {
                     >
                       {program.thumb != null ? (
                         <img
-                          src={`http://localhost:9090/upload/workshop/${workshop.workshopId}/program/${program.programId}/${program.thumb}`}
+                          src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${workshop.workshopId}/program/${program.programId}/${program.thumb}`}
                           alt="프로그램 썸네일"
                         />
                       ) : (
@@ -57,7 +57,7 @@ function ProgramCard({ programs, workshop, clickWishBtn, countWish }) {
                     <div className="workshop-profile-thumb">
                       {workshop.profileImg ? (
                         <img
-                          src={`http://localhost:9090/upload/workshop/${workshop.workshopId}/${workshop.profileImg}`}
+                          src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${workshop.workshopId}/${workshop.profileImg}`}
                           alt="워크샵 이미지"
                           className="workshop-profile-thumb"
                         />

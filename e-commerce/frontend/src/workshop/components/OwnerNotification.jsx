@@ -22,7 +22,7 @@ function OwnerNotification({ ownerId }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:9090/customer/my-notification", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-notification`", {
         params: {
           userId: ownerId,
           page: currentPage,
@@ -41,7 +41,7 @@ function OwnerNotification({ ownerId }) {
   if (!myNotifications) return <p>로딩 중...</p>;
   const openModal = (id) => {
     axios
-      .get(`http://localhost:9090/customer/my-notification-info?id=${id}`)
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/my-notification-info?id=${id}`)
       .then((res) => {
         setNotification(res.data);
         console.log(res.data);
@@ -54,7 +54,7 @@ function OwnerNotification({ ownerId }) {
     if (notification && !notification.viewed) {
       axios
         .post(
-          `http://localhost:9090/customer/notification/update-notification?id=${notification.id}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/notification/update-notification?id=${notification.id}`
         )
         .then(() =>
           setMyNotifications((prev) =>
@@ -91,7 +91,7 @@ function OwnerNotification({ ownerId }) {
 
     axios
       .post(
-        "http://localhost:9090/customer/notification/update-notifications",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/update-notifications`",
         selectedIds
       )
       .then(() =>
@@ -118,7 +118,7 @@ function OwnerNotification({ ownerId }) {
 
     axios
       .post(
-        "http://localhost:9090/customer/notification/delete-notifications",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/notification/delete-notifications`",
         selectedIds
       )
       .then((res) =>

@@ -38,7 +38,7 @@ const ReviewSection = forwardRef(({ reviews, userId, onDelete }, ref) => {
   const handleLoadMore = () => setVisibleCount((prev) => prev + 5);
 
   const showImg = (r) => {
-    const imgUrl = `http://localhost:9090/upload/review/${r.programId}/${r.reviewImage}`;
+    const imgUrl = `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/review/${r.programId}/${r.reviewImage}`;
     setSelectedImg(imgUrl);
     setIsOpen(true);
   };
@@ -61,12 +61,12 @@ const ReviewSection = forwardRef(({ reviews, userId, onDelete }, ref) => {
                     <span className="review_profileImg__">
                       {r.profileImg ? (
                         <img
-                          src={`http://localhost:9090/upload/user/${r.userId}/${r.profileImg}`}
+                          src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/user/${r.userId}/${r.profileImg}`}
                           alt="유저 프로필"
                         />
                       ) : (
                         <img
-                          src={`http://localhost:9090/upload/user/default_img.jpg`}
+                          src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/user/default_img.jpg`}
                           alt="유저 프로필"
                         />
                       )}
@@ -114,7 +114,7 @@ const ReviewSection = forwardRef(({ reviews, userId, onDelete }, ref) => {
                 {r.reviewImage && (
                   <div className="review-img">
                     <img
-                      src={`http://localhost:9090/upload/review/${r.programId}/${r.reviewImage}`}
+                      src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/review/${r.programId}/${r.reviewImage}`}
                       alt="리뷰 이미지"
                       className="review-photo"
                       onClick={() => showImg(r)}

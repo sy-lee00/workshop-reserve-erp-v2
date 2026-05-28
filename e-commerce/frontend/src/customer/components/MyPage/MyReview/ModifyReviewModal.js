@@ -49,7 +49,7 @@ function ModifyReviewModal({ review, onClose, onSuccess }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:9090/customer/review/update-review",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/review/update-review`",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

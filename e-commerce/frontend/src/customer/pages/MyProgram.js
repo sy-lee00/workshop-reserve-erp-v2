@@ -12,7 +12,7 @@ function MyProgram({ userId }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9090/customer/my-program?userId=${userId}`)
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/my-program?userId=${userId}`)
       .then((res) => {
         setPrograms(res.data);
       })
@@ -61,7 +61,7 @@ function MyProgram({ userId }) {
                       >
                         {program.thumb != null ? (
                           <img
-                            src={`http://localhost:9090/upload/workshop/${program.workshopId}/program/${program.programId}/${program.thumb}`}
+                            src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${program.workshopId}/program/${program.programId}/${program.thumb}`}
                             alt="프로그램 썸네일"
                           />
                         ) : (

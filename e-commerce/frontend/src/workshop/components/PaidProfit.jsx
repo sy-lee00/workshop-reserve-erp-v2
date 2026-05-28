@@ -15,7 +15,7 @@ function PaidProfit({ workshopId, monthly, paid, onClose }) {
 
     setLoading(true);
     axios
-      .post("http://localhost:9090/workshop/profit/view-program", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/profit/view-program`", {
         workshopId: workshopId,
         monthly: monthly,
       })
@@ -47,7 +47,7 @@ function PaidProfit({ workshopId, monthly, paid, onClose }) {
       return;
     }
     axios
-      .post("http://localhost:9090/workshop/profit/pay-profit", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/profit/pay-profit`", {
         workshopId: workshopId,
         monthly: monthly,
       })
@@ -66,7 +66,7 @@ function PaidProfit({ workshopId, monthly, paid, onClose }) {
       return;
     }
     axios
-      .post("http://localhost:9090/workshop/profit/pay-profit", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/profit/pay-profit`", {
         workshopId: workshopId,
         monthly: monthly,
         finalAmount: paid.finalAmount,

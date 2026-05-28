@@ -13,7 +13,7 @@ function WorkshopAllFollowButton({ userId, workshop }) {
     }
     try {
       await axios.post(
-        `http://localhost:9090/customer/follow/workshop-follow?userId=${userId}`,
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/follow/workshop-follow?userId=${userId}`,
         {
           userId: userId,
           workshopId: workshopId,
@@ -38,7 +38,7 @@ function WorkshopAllFollowButton({ userId, workshop }) {
     const fetchFollows = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:9090/customer/follow/list?userId=${userId}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/follow/list?userId=${userId}`
         );
 
         // 예: res.data = [1, 3, 5]  (팔로우 중인 workshopId 목록)

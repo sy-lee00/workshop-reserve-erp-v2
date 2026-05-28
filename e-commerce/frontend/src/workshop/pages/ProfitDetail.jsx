@@ -13,7 +13,7 @@ function ProfitDetail({ ownerId, monthly }) {
     if (!ownerId) return;
 
     axios
-      .get(`http://localhost:9090/workshop/info`, {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/info`, {
         params: { workshopId, ownerId: ownerId },
       })
       .then((res) => {
@@ -33,13 +33,13 @@ function ProfitDetail({ ownerId, monthly }) {
       <div className="workshop-header">
         {workshop.profileImg != null ? (
           <img
-            src={`http://localhost:9090/upload/workshop/${workshop.workshopId}/${workshop.profileImg}`}
+            src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${workshop.workshopId}/${workshop.profileImg}`}
             alt="워크샵 이미지"
             className="ws-profile-img"
           />
         ) : (
           <img
-            src={`http://localhost:9090/upload/workshop/workshop_default.png`}
+            src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/workshop_default.png`}
             alt="워크샵 이미지"
             className="ws-profile-img"
           />

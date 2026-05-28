@@ -8,7 +8,7 @@ function MyReviewButton({ myReview, setMyReviews, handleOpenModifyModal }) {
     }
 
     axios
-      .get("http://localhost:9090/customer/review/delete-review", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/review/delete-review`", {
         params: { reviewId: myReviews.reviewId },
       })
       .then((res) => {

@@ -12,7 +12,7 @@ function MyReview({ userId }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9090/customer/my-review?userId=${userId}`)
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/my-review?userId=${userId}`)
       .then((res) => setMyReviews(res.data))
       .catch((err) => console.error("프로그램 정보 불러오기 오류:", err));
   }, [userId]);

@@ -14,7 +14,7 @@ function NoticeDetail({ adminNoticeId, onClose, adminId, onUpdate }) {
 
     axios
       .get(
-        `http://localhost:9090/erp-system/detail?adminNoticeId=${adminNoticeId}`
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/erp-system/detail?adminNoticeId=${adminNoticeId}`
       )
       .then((res) => {
         setNoticeDetail(res.data);
@@ -45,7 +45,7 @@ function NoticeDetail({ adminNoticeId, onClose, adminId, onUpdate }) {
     };
 
     axios
-      .post("http://localhost:9090/erp-system/notice-modi", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/notice-modi`", data)
       .then((res) => {
         if (res.data === 1) {
           alert("공지사항이 수정되었습니다.");
@@ -66,7 +66,7 @@ function NoticeDetail({ adminNoticeId, onClose, adminId, onUpdate }) {
     if (!window.confirm("정말 삭제하시겠습니까?")) return;
 
     axios
-      .post("http://localhost:9090/erp-system/notice-del", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/notice-del`", {
         adminNoticeId: adminNoticeId,
       })
       .then((res) => {

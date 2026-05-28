@@ -8,7 +8,7 @@ function Unsettlement() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:9090/erp-system/settlement/unsettled")
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/settlement/unsettled`")
       .then((res) => {
         setUnsettled(res.data);
       })

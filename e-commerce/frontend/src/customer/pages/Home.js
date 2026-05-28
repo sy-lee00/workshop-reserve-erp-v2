@@ -24,7 +24,7 @@ function Home({ userId }) {
     hasLogged.current = true;
 
     axios
-      .post("http://localhost:9090/erp-system/visit-log", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/visit-log`", {
         workshopId: null,
         programId: null,
       })
@@ -38,7 +38,7 @@ function Home({ userId }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:9090/customer/home")
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/home`")
       .then((res) => {
         setWorkshops(res.data.workshops);
         setPrograms(res.data.programs);

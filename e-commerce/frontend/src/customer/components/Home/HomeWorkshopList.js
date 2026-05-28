@@ -63,7 +63,7 @@ function WorkshopList({ workshops }) {
     }
     try {
       await axios.post(
-        `http://localhost:9090/customer/follow/workshop-follow?userId=${userId}`,
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/follow/workshop-follow?userId=${userId}`,
         {
           userId: userId,
           workshopId: workshopId,
@@ -88,7 +88,7 @@ function WorkshopList({ workshops }) {
     const fetchFollows = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:9090/customer/follow/list?userId=${userId}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/follow/list?userId=${userId}`
         );
 
         // 예: res.data = [1, 3, 5]  (팔로우 중인 workshopId 목록)
@@ -107,7 +107,7 @@ function WorkshopList({ workshops }) {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:9090/customer/follow/tag")
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/follow/tag`")
       .then((res) => {
         // console.log("태그 응답:", res.data);
         // { workshopId: 1, categories: "도자기,핸드메이드" } → 형태를 map으로 변환
@@ -155,7 +155,7 @@ function WorkshopList({ workshops }) {
                   <div className="workshop-slide-logo">
                     {workshop.profileImg != null ? (
                       <img
-                        src={`http://localhost:9090/upload/workshop/${workshop.workshopId}/${workshop.profileImg}`}
+                        src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${workshop.workshopId}/${workshop.profileImg}`}
                         alt="워크샵 이미지"
                       />
                     ) : (

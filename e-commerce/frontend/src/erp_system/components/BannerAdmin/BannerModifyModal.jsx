@@ -27,7 +27,7 @@ function BannerModifyModal({
     }
 
     try {
-      await axios.put("http://localhost:9090/erp-system/banner", formData, {
+      await axios.put(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/banner`", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       if (!window.confirm("배너를 수정하시겠습니까?")) {
@@ -74,7 +74,7 @@ function BannerModifyModal({
 
             <label>기존 이미지</label>
             <img
-              src={`http://localhost:9090${editBanner.image}`}
+              src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`${editBanner.image}`}
               alt="배너"
               width="200"
             />

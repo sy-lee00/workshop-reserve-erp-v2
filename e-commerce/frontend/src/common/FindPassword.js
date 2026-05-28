@@ -38,7 +38,7 @@ function FindPassword( {onPasswordChanged, onLogin, findPwdPage} ) {
         }
 
         axios
-            .post(`http://localhost:9090/api/auth/email-verify`, {email})
+            .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/api/auth/email-verify`", {email})
             .then((res) => {
                 console.log(res.data)
                 setCode(res.data)
@@ -134,7 +134,7 @@ function FindPassword( {onPasswordChanged, onLogin, findPwdPage} ) {
         }
 
         axios
-            .post("http://localhost:9090/api/auth/change-password", {
+            .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/api/auth/change-password`", {
                 email: email,
                 password: pwd,
             }, {

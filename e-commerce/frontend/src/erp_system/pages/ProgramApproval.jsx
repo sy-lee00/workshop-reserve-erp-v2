@@ -37,7 +37,7 @@ function ProgramApproval({ userId }) {
 
   const searchProgram = () => {
     axios
-      .get("http://localhost:9090/erp-system/program/list", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/program/list`", {
         params: {
           filter,
           keyword,
@@ -70,7 +70,7 @@ function ProgramApproval({ userId }) {
   const openModal = async (id) => {
     try {
       const res = await axios.post(
-        "http://localhost:9090/erp-system/program/detail",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/program/detail`",
         null,
         { params: { programId: id } }
       );
@@ -97,7 +97,7 @@ function ProgramApproval({ userId }) {
     };
 
     axios
-      .post("http://localhost:9090/erp-system/program/update-approved", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/program/update-approved`", data)
       .then((res) => {
         if (approvedType === "승인") {
           toast.success("승인이 완료되었습니다.");

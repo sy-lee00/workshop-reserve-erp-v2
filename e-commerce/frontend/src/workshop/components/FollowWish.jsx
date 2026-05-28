@@ -21,14 +21,14 @@ function FollowWish({
 
     if (workshopId) {
       axios
-        .get(`http://localhost:9090/workshop/follow?workshopId=${workshopId}`)
+        .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/follow?workshopId=${workshopId}`)
         .then((res) => setFollow(res.data))
         .catch((err) => alert(err));
     }
     if (programId) {
       axios
         .get(
-          `http://localhost:9090/workshop/program/wish-list?programId=${programId}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/program/wish-list?programId=${programId}`
         )
         .then((res) => setWish(res.data))
         .catch((err) => alert(err));

@@ -85,12 +85,12 @@ const QnaSection = forwardRef(({ qnaWorkshops, userId, onDelete }, ref) => {
                       <span className="qna_profileImg__">
                         {q.userProfileImg ? (
                           <img
-                            src={`http://localhost:9090/upload/user/${q.userId}/${q.userProfileImg}`}
+                            src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/user/${q.userId}/${q.userProfileImg}`}
                             alt="유저 프로필"
                           />
                         ) : (
                           <img
-                            src={`http://localhost:9090/upload/user/default_img.jpg`}
+                            src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/user/default_img.jpg`}
                             alt="유저 프로필"
                           />
                         )}

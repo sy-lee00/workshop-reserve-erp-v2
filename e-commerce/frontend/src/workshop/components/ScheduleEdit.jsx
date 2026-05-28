@@ -64,7 +64,7 @@ function ScheduleEdit({
       capacity: newCapacity,
     };
     axios
-      .post(`http://localhost:9090/workshop/program/schedule-add`, data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/program/schedule-add`, data)
       .then((res) => {
         if (res.status >= 200 && res.status < 300) {
           alert("일정이 등록되었습니다!");
@@ -106,7 +106,7 @@ function ScheduleEdit({
     };
 
     axios
-      .post(`http://localhost:9090/workshop/program/schedule-modi`, data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/program/schedule-modi`, data)
       .then((res) => {
         if (res.status >= 200 && res.status < 300) {
           alert("일정이 수정되었습니다!");
@@ -133,7 +133,7 @@ function ScheduleEdit({
     }
 
     axios
-      .post(`http://localhost:9090/workshop/program/schedule-del`, {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/program/schedule-del`, {
         scheduleId: scheduleId,
       })
       .then((res) => {

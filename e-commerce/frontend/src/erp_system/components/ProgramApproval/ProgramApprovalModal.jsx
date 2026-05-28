@@ -48,7 +48,7 @@ function ProgramApprovalModal({ program, isOpen, closeModal, onSubmit }) {
             >
               {program.thumb != null ? (
                 <img
-                  src={`http://localhost:9090/upload/workshop/${program.workshopId}/program/${program.programId}/${program.thumb}`}
+                  src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${program.workshopId}/program/${program.programId}/${program.thumb}`}
                   alt="프로그램 썸네일"
                 />
               ) : (

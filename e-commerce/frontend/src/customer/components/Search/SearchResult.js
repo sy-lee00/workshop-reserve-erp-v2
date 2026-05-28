@@ -51,7 +51,7 @@ function SearchResult({
 
     // 4) 서버 통신
     axios
-      .post(`http://localhost:9090/customer/toggle-wish`, {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/toggle-wish`, {
         userId,
         programId: programId,
         action: nextWished ? "add" : "remove",
@@ -96,7 +96,7 @@ function SearchResult({
     }
 
     axios
-      .get(`http://localhost:9090/customer/my-wish?userId=${userId}`)
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/my-wish?userId=${userId}`)
       .then((res) => {
         const ids = res.data.map((w) => w.programId);
         setWishList(ids);
@@ -135,7 +135,7 @@ function SearchResult({
           if (val) query.append(key, val);
         });
 
-        const url = `http://localhost:9090/customer/search?${query.toString()}`;
+        const url = `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/search?${query.toString()}`;
 
         const res = await fetch(url);
         if (!res.ok) throw new Error(`서버 에러: ${res.status}`);
@@ -190,7 +190,7 @@ function SearchResult({
                 <div className="card-image-placeholder">
                   {program.thumb ? (
                     <img
-                      src={`http://localhost:9090/upload/workshop/${program.workshopId}/program/${program.programId}/${program.thumb}`}
+                      src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${program.workshopId}/program/${program.programId}/${program.thumb}`}
                       alt="프로그램 이미지"
                     />
                   ) : (
@@ -215,7 +215,7 @@ function SearchResult({
                   <div className="workshop-profile-thumb">
                     {program.profileImg ? (
                       <img
-                        src={`http://localhost:9090/upload/workshop/${program.workshopId}/${program.profileImg}`}
+                        src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${program.workshopId}/${program.profileImg}`}
                         alt="워크샵 이미지"
                         className="workshop-profile-thumb"
                       />

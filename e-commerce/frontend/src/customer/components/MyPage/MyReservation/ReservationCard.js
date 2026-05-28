@@ -42,7 +42,7 @@ function ReservationCard({
                 >
                   {reservation.thumb != null ? (
                     <img
-                      src={`http://localhost:9090/upload/workshop/${reservation.workshopId}/program/${reservation.programId}/${reservation.thumb}`}
+                      src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${reservation.workshopId}/program/${reservation.programId}/${reservation.thumb}`}
                       alt="프로그램 썸네일"
                     />
                   ) : (

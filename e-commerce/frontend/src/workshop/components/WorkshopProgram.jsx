@@ -17,7 +17,7 @@ const WorkshopProgram = ({ workshopId, ownerId, type, monthly }) => {
 
   const fetchPrograms = useCallback(() => {
     axios
-      .get(`http://localhost:9090/workshop/program/ws-program`, {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/program/ws-program`, {
         params: { workshopId, ownerId },
       })
       .then((res) => {
@@ -88,7 +88,7 @@ const WorkshopProgram = ({ workshopId, ownerId, type, monthly }) => {
                   >
                     {program.thumb != null ? (
                       <img
-                        src={`http://localhost:9090/upload/workshop/${workshopId}/program/${program.programId}/${program.thumb}`}
+                        src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${workshopId}/program/${program.programId}/${program.thumb}`}
                         alt="프로그램"
                         className="wp-item-thumb"
                       />

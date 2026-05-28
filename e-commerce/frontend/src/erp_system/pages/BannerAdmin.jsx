@@ -24,7 +24,7 @@ function AdminBanner({ userId }) {
     fetchBanners();
   }, []);
   const fetchBanners = () => {
-    axios.get("http://localhost:9090/erp-system/banner").then((res) => {
+    axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/banner`").then((res) => {
       const sorted = res.data.sort((a, b) => a.sortOrder - b.sortOrder);
       setBanners(sorted);
     });
@@ -56,7 +56,7 @@ function AdminBanner({ userId }) {
 
     try {
       for (const item of updated) {
-        await axios.put("http://localhost:9090/erp-system/banner/order", null, {
+        await axios.put(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/banner/order`", null, {
           params: {
             bannerId: item.bannerId,
             sortOrder: item.sortOrder,
@@ -81,7 +81,7 @@ function AdminBanner({ userId }) {
     if (!window.confirm("정말 삭제하시겠습니까?")) return;
     alert("배너가 삭제되었습니다.");
 
-    await axios.delete(`http://localhost:9090/erp-system/banner/${bannerId}`);
+    await axios.delete(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/erp-system/banner/${bannerId}`);
     fetchBanners();
   };
 
@@ -116,7 +116,7 @@ function AdminBanner({ userId }) {
     await new Promise((resolve) => setTimeout(resolve, 500));
     // 서버 저장 요청
     try {
-      await axios.put("http://localhost:9090/erp-system/banner/active", null, {
+      await axios.put(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/banner/active`", null, {
         params: {
           bannerId: banner.bannerId,
           active: newValue,
@@ -213,7 +213,7 @@ function AdminBanner({ userId }) {
 
                           <div className="banner-cell img-col">
                             <img
-                              src={`http://localhost:9090${b.image}`}
+                              src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`${b.image}`}
                               alt="banner"
                               width="120"
                             />

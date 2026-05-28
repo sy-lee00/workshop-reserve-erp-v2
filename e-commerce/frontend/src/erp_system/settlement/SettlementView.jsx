@@ -19,7 +19,7 @@ function SettlementView() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:9090/erp-system/settlement/dashboard")
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/settlement/dashboard`")
       .then((res) => {
         const data = res.data;
         setMonthlyData(data);

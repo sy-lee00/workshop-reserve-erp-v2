@@ -43,7 +43,7 @@ function MyReservation({ userId }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9090/customer/my-reservation?userId=${userId}`)
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/my-reservation?userId=${userId}`)
       .then((res) => setReservations(res.data))
       .catch((err) => console.error("프로그램 정보 불러오기 오류:", err));
   }, [userId]);
@@ -73,7 +73,7 @@ function MyReservation({ userId }) {
     }
 
     axios
-      .post("http://localhost:9090/customer/reservation/cancel-reservation", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/reservation/cancel-reservation`", {
         reservationId: id,
       })
       .then((res) => {
@@ -133,7 +133,7 @@ function MyReservation({ userId }) {
       formData.append("file", thumb);
     }
     axios
-      .post("http://localhost:9090/customer/review/insert", formData, {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/review/insert`", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -146,7 +146,7 @@ function MyReservation({ userId }) {
 
   const openReviewModal = (reservation) => {
     axios
-      .post("http://localhost:9090/customer/review/exist-check", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/review/exist-check`", {
         programId: reservation.programId,
         reservationId: reservation.reservationId,
         userId: userId,
@@ -193,7 +193,7 @@ function MyReservation({ userId }) {
     };
 
     axios
-      .post("http://localhost:9090/customer/qna/insert-qna", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/qna/insert-qna`", data)
       .then((res) => {
         if (res.data === 1) {
           toast.success("문의가 등록되었습니다!");

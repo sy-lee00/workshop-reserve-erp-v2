@@ -33,7 +33,7 @@ function ProgramForm({
     if (programId) {
       axios
         .get(
-          `http://localhost:9090/workshop/program/select-one?programId=${programId}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/program/select-one?programId=${programId}`
         )
         .then((res) => {
           setTitle(res.data.title);
@@ -77,7 +77,7 @@ function ProgramForm({
     }
 
     axios
-      .post("http://localhost:9090/workshop/program/add", formData, {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/program/add`", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -102,7 +102,7 @@ function ProgramForm({
     };
 
     axios
-      .post("http://localhost:9090/workshop/program/modi", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/program/modi`", data)
       .then((res) => {
         alert("성공적으로 수정되었습니다.");
         onClose();
@@ -132,7 +132,7 @@ function ProgramForm({
       active: newActive,
     };
     axios
-      .post(`http://localhost:9090/workshop/program/active`, data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/program/active`, data)
       .then((res) => {
         alert("정상적으로 처리되었습니다.");
         navigate(`/workshop/info/${workshopId}`);

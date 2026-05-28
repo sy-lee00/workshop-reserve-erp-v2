@@ -159,7 +159,7 @@ function MyPage({ userId }) {
       return;
     }
     axios
-      .post(`http://localhost:9090/workshop/owner-quit?ownerId=${userId}`)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/owner-quit?ownerId=${userId}`)
       .then((res) => {
         alert("탈퇴 처리되었습니다.");
         logout();
@@ -170,10 +170,10 @@ function MyPage({ userId }) {
 
   const existingImageUrl =
     user && user.profileImg
-      ? `http://localhost:9090/upload/user/${userId}/${
+      ? `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/user/${userId}/${
           user.profileImg
         }?t=${Date.now()}`
-      : `http://localhost:9090/upload/user/default_img.jpg`;
+      : `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/user/default_img.jpg`;
 
   return (
     <div className="my-page">
@@ -190,7 +190,7 @@ function MyPage({ userId }) {
         <section className="profile-summary">
           {user.profileImg == null ? (
             <img
-              src={`http://localhost:9090/upload/user/default_img.jpg`}
+              src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/user/default_img.jpg`}
               alt="프로필 이미지"
               className="user-profile"
             />

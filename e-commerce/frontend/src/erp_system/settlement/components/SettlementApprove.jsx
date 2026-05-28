@@ -16,7 +16,7 @@ function SettlementApprove({ data, onClose, fetchSettlement, adminId }) {
     }
     setLoading(true);
     axios
-      .post("http://localhost:9090/workshop/profit/view-program", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/profit/view-program`", {
         workshopId: data.workshopId,
         monthly: data.monthly,
       })
@@ -34,7 +34,7 @@ function SettlementApprove({ data, onClose, fetchSettlement, adminId }) {
       if (!window.confirm(`${status} 처리 하시겠습니까?`)) return;
 
       axios
-        .post("http://localhost:9090/erp-system/settlement/status-update", {
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/settlement/status-update`", {
           settlementId: data.settlementId,
           status: status,
           workshopId: data.workshopId,
@@ -51,7 +51,7 @@ function SettlementApprove({ data, onClose, fetchSettlement, adminId }) {
         .catch((err) => console.error(err.response?.data || err));
     } else {
       axios
-        .post("http://localhost:9090/erp-system/settlement/status-update", {
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/settlement/status-update`", {
           settlementId: data.settlementId,
           status: status,
           adjustAmount: Number(adjustAmount) * adjustSign,

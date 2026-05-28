@@ -6,7 +6,7 @@ function MyReviewImage({ myReview }) {
     <div className="review-image">
       {myReview.reviewImage ? (
         <img
-          src={`http://localhost:9090/upload/review/${myReview.programId}/${myReview.reviewImage}`}
+          src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/review/${myReview.programId}/${myReview.reviewImage}`}
           alt="리뷰 이미지"
         />
       ) : (

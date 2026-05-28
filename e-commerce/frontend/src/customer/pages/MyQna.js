@@ -26,7 +26,7 @@ function MyQna({ userId }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9090/customer/my-qna?userId=${userId}`)
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/my-qna?userId=${userId}`)
       .then((res) => setMyQnas(res.data))
       .catch((err) => console.error("문의 정보 불러오기 오류:", err));
   }, [userId]);
@@ -48,7 +48,7 @@ function MyQna({ userId }) {
     if (!window.confirm("정말 이 문의를 삭제하시겠습니까?")) return;
 
     axios
-      .delete("http://localhost:9090/customer/my-qna/delete", {
+      .delete(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/my-qna/delete`", {
         params: {
           qnaType: qna.qnaType,
           qnaId: qna.qnaId,

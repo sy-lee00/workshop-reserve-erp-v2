@@ -12,7 +12,7 @@ function HomeBanner({ scrollRef }) {
   // 배너 데이터 불러오기
   useEffect(() => {
     axios
-      .get("http://localhost:9090/erp-system/banner")
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/banner`")
       .then((res) => {
         const activeOnly = res.data
           .filter((b) => b.active)
@@ -105,7 +105,7 @@ function HomeBanner({ scrollRef }) {
         {carouselItems.map((b, i) => (
           <Link to={b.link} className="banner-placeholder" key={i}>
             <img
-              src={`http://localhost:9090${b.image}`}
+              src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`${b.image}`}
               alt={b.title}
               className="banner-img"
               loading="lazy"

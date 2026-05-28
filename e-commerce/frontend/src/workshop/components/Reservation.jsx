@@ -14,7 +14,7 @@ function Reservation({ workshopId, programId, onClose }) {
     };
 
     axios
-      .get("http://localhost:9090/workshop/reservation", { params: dto })
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/reservation`", { params: dto })
       .then((res) => setReservation(res.data))
       .catch((err) => console.log(err));
   }, [workshopId, programId]);

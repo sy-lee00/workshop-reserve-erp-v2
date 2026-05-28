@@ -17,7 +17,7 @@ function ReservationDetail({ userId }) {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:9090/customer/reservation-detail?reservationId=${id}`
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/reservation-detail?reservationId=${id}`
       )
       .then((res) => {
         setReservation(res.data);
@@ -52,7 +52,7 @@ function ReservationDetail({ userId }) {
     }
 
     axios
-      .post("http://localhost:9090/customer/reservation/cancel-reservation", {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/reservation/cancel-reservation`", {
         reservationId: id,
       })
       .then((res) => {

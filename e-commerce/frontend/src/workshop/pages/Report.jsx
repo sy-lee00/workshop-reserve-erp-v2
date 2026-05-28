@@ -23,7 +23,7 @@ function Report({ ownerId }) {
   useEffect(() => {
     axios({
       method: "post",
-      url: "http://localhost:9090/workshop/report/view",
+      url: `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/report/view`",
       params: { workshopId },
     })
       .then((res) => setQna(res.data))

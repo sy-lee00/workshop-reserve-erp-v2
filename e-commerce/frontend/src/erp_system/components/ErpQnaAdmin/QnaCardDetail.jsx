@@ -26,7 +26,7 @@ function QnaCardDetail({ index, openIndex, qna, handleSearch, userId }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:9090/erp-system/qna-admin/answer",
+        `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/qna-admin/answer`",
         {
           qnaAdminId: qnaAdminId,
           answer: answerText,

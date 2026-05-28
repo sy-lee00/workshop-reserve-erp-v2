@@ -22,7 +22,7 @@ function WorkshopCard({ workshop, following, totalFollows, clickFollowBtn }) {
             >
               {workshop.profileImg != null ? (
                 <img
-                  src={`http://localhost:9090/upload/workshop/${workshop.workshopId}/${workshop.profileImg}`}
+                  src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${workshop.workshopId}/${workshop.profileImg}`}
                   alt="워크샵 이미지"
                 />
               ) : (

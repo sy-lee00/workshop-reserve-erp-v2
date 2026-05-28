@@ -13,7 +13,7 @@ function Register(){
         e.preventDefault();
 
         axios
-        .post(`http://localhost:9090/register`, {name, password: pwd, email, role, phone})
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/register`", {name, password: pwd, email, role, phone})
         .then((res) => {
             console.log("회원가입 완료")
             window.location.href = "/";

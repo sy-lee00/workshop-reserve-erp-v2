@@ -24,7 +24,7 @@ function NoticeForm({ adminId, onUpdate, setType }) {
     };
 
     axios
-      .post("http://localhost:9090/erp-system/write-notice", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/write-notice`", data)
       .then((res) => {
         if (res.data === 1) {
           alert("성공적으로 작성되었습니다.");

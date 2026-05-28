@@ -14,7 +14,7 @@ const SuperDashboard = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:9090/erp-system/dashboard/super')
+    axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/dashboard/super`')
          .then(res => {
            setData(res.data);
          })

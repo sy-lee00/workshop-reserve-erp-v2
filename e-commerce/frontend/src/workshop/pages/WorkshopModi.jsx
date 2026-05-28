@@ -21,7 +21,7 @@ function WorkshopModi({ ownerId }) {
     if (!workshopId) return;
 
     axios
-      .get(`http://localhost:9090/workshop/info?workshopId=${workshopId}`)
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/info?workshopId=${workshopId}`)
       .then((res) => {
         const workshop = res.data;
         setName(workshop.name);
@@ -62,7 +62,7 @@ function WorkshopModi({ ownerId }) {
     if (thumb) formData.append("file", thumb);
 
     axios
-      .post("http://localhost:9090/workshop/ws-modify", formData, {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/ws-modify`", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -94,7 +94,7 @@ function WorkshopModi({ ownerId }) {
     };
 
     axios
-      .post("http://localhost:9090/workshop/ws-del", deactivateVO)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/ws-del`", deactivateVO)
       .then(() => {
         setActive(!active); // 서버 성공 후 상태 변경
         alert(
@@ -117,7 +117,7 @@ function WorkshopModi({ ownerId }) {
       {/* 1. 좌측 이미지 영역 (40%) */}
       <div className="ws-split-left">
         <img
-          src={"http://localhost:9090/upload/logo/dia_for_owner.png"}
+          src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/logo/dia_for_owner.png`"}
           alt="D.I.A Logo"
           className="ws-logo-icon"
         />

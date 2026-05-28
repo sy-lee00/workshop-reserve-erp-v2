@@ -22,7 +22,7 @@ function ErpHeader({ userId }) {
           navigate("/erp-system");
         }}
       >
-        <img src="http://localhost:9090/upload/logo/erp_logo.png" width={140}/>
+        <img src=`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/upload/logo/erp_logo.png`" width={140}/>
       </div>
       <div>
         <nav className="erp-sys-main-nav">

@@ -37,7 +37,7 @@ function ApprovalLog() {
 
   const searchApprovalLog = () => {
     axios
-      .get("http://localhost:9090/erp-system/admin/approval-log", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/admin/approval-log`", {
         params: {
           filter,
           keyword,

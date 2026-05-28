@@ -6,7 +6,7 @@ function MyReviewProgramInfo({ myReview }) {
       {myReview.thumb ? (
         <Link to={`/customer/program/${myReview.programId}`} className="link">
           <img
-            src={`http://localhost:9090/upload/workshop/${myReview.workshopId}/program/${myReview.programId}/${myReview.thumb}`}
+            src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${myReview.workshopId}/program/${myReview.programId}/${myReview.thumb}`}
             alt={myReview.title}
             className="review-program-thumb"
           />

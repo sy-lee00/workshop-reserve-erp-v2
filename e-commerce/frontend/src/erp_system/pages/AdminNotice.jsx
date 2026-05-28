@@ -12,7 +12,7 @@ function AdminNotice({ adminId }) {
 
   const fetchNoticeList = () => {
     axios
-      .get("http://localhost:9090/erp-system/view")
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/view`")
       .then((res) => setNotice(res.data))
       .catch((err) => console.error(err));
   };

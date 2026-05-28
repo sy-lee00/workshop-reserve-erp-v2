@@ -74,7 +74,7 @@ function ProgramInfo() {
       try {
         hasLogged.current = true;
 
-        await axios.post("http://localhost:9090/erp-system/visit-log", {
+        await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/visit-log`", {
           workshopId: null,
           programId: id,
         });
@@ -104,7 +104,7 @@ function ProgramInfo() {
 
   const fetchProgramInfo = useCallback(() => {
     axios
-      .get("http://localhost:9090/customer/program-info", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/program-info`", {
         params: {
           programId: id,
           userId: userId,
@@ -219,7 +219,7 @@ function ProgramInfo() {
     };
 
     axios
-      .post("http://localhost:9090/customer/wish/wish-program", wishData)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/wish/wish-program`", wishData)
       .then((res) => {
         const active = res.data;
         setIsWished(active);
@@ -241,7 +241,7 @@ function ProgramInfo() {
     }
 
     axios
-      .get("http://localhost:9090/customer/review/delete-review", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/review/delete-review`", {
         params: { reviewId: reviewId },
       })
       .then((res) => {
@@ -269,7 +269,7 @@ function ProgramInfo() {
     }
 
     axios
-      .get("http://localhost:9090/customer/qna/delete-qna", {
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/qna/delete-qna`", {
         params: { qnaId: qnaId },
       })
       .then((res) => {
@@ -310,7 +310,7 @@ function ProgramInfo() {
     };
 
     axios
-      .post("http://localhost:9090/customer/qna/register-qna", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/customer/qna/register-qna`", data)
       .then((res) => {
         if (res.data) {
           toast.success("문의가 등록되었습니다!");
@@ -354,7 +354,7 @@ function ProgramInfo() {
             >
               {program.thumb != null ? (
                 <img
-                  src={`http://localhost:9090/upload/workshop/${workshop.workshopId}/program/${program.programId}/${program.thumb}`}
+                  src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${workshop.workshopId}/program/${program.programId}/${program.thumb}`}
                   alt="프로그램 썸네일"
                 />
               ) : (

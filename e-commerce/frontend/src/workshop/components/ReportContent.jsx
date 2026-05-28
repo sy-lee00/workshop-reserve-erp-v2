@@ -17,7 +17,7 @@ function ReportContent({ onClose, qna }) {
     };
 
     axios
-      .post("http://localhost:9090/workshop/report/answer", data)
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/workshop/report/answer`", data)
       .then((res) => {
         alert("답변이 등록되었습니다.");
         navigate(`/workshop/report/view/${workshopId}/${name}`);

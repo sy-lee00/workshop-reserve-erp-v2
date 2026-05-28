@@ -27,7 +27,7 @@ function HeaderMenu() {
     const fetchNotifications = () => {
       axios
         .get(
-          `http://localhost:9090/customer/notification-popup?userId=${userId}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/notification-popup?userId=${userId}`
         )
         .then((res) => {
           setNotifications(res.data);

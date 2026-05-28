@@ -11,7 +11,7 @@ function ProgramImageSlider({ workshopId, programId }) {
     if (programId) {
       axios
         .get(
-          `http://localhost:9090/workshop/program/images?programId=${programId}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/workshop/program/images?programId=${programId}`
         )
         .then((res) => setImageList(res.data))
         .catch((err) => console.error("이미지 목록 로딩 오류:", err));
@@ -55,7 +55,7 @@ function ProgramImageSlider({ workshopId, programId }) {
         {imageList.map((img) => (
           <div className="ws-pi-image-card" key={img.programImageId}>
             <img
-              src={`http://localhost:9090/upload/workshop/${workshopId}/program/${programId}/${img.image}`}
+              src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${workshopId}/program/${programId}/${img.image}`}
               alt="프로그램 이미지"
               className="ws-pi-image"
             />

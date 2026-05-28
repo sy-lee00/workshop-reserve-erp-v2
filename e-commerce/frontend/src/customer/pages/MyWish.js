@@ -134,7 +134,7 @@ function MyWish({ userId }) {
 
                     {item.thumb != null ? (
                       <img
-                        src={`http://localhost:9090/upload/workshop/${item.workshopId}/program/${item.programId}/${item.thumb}`}
+                        src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${item.workshopId}/program/${item.programId}/${item.thumb}`}
                         alt="프로그램 이미지"
                       />
                     ) : (
@@ -164,7 +164,7 @@ function MyWish({ userId }) {
                     <div className="workshop-profile-thumb">
                       {item.profileImg != null ? (
                         <img
-                          src={`http://localhost:9090/upload/workshop/${item.workshopId}/${item.profileImg}`}
+                          src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${item.workshopId}/${item.profileImg}`}
                           alt="워크샵 이미지"
                           className="workshop-profile-thumb"
                         />

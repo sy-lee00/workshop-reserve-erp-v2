@@ -98,7 +98,7 @@ function Register({ onRegisterSuccess, onLogin }){
         setCodeInput(false)
         
         axios
-        .post(`http://localhost:9090/api/auth/email-verify`, {email})
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/api/auth/email-verify`, {email})
         .then((res) => {
             console.log(res.data)
 
@@ -237,7 +237,7 @@ function Register({ onRegisterSuccess, onLogin }){
         }
 
         axios
-        .post(`http://localhost:9090/register`, {email, password: pwd, name, role, phone})
+        .post(`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/register`, {email, password: pwd, name, role, phone})
         .then((res) => {
             if(res.data !== null) {
                 console.log("회원가입 완료")

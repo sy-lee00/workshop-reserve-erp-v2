@@ -12,7 +12,7 @@ function ProgramInfo({ scheduleInfo }) {
         >
           {scheduleInfo.thumb != null ? (
             <img
-              src={`http://localhost:9090/upload/workshop/${scheduleInfo.workshopId}/program/${scheduleInfo.programId}/${scheduleInfo.thumb}`}
+              src={`${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/upload/workshop/${scheduleInfo.workshopId}/program/${scheduleInfo.programId}/${scheduleInfo.thumb}`}
               alt="프로그램 썸네일"
             />
           ) : (

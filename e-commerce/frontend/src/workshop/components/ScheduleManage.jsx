@@ -14,7 +14,7 @@ function ScheduleManage({ programId, onClose, userId }) {
     (date) => {
       axios
         .get(
-          `http://localhost:9090/customer/program-info?programId=${programId}&userId=${userId}`
+          `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}`/customer/program-info?programId=${programId}&userId=${userId}`
         )
         .then((res) => {
           setSchedule(res.data.scheduleList || []);

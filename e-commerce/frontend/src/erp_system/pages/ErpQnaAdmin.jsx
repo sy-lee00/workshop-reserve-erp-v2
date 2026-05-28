@@ -20,7 +20,7 @@ function ErpQnaAdmin({ userId }) {
     endDate: "",
   });
 
-  const BASE_URL = "http://localhost:9090/erp-system/qna-admin";
+  const BASE_URL = `${process.env.REACT_APP_API_URL || 'http://localhost:9090'}/erp-system/qna-admin`";
 
   // 검색 요청
   const handleSearch = async () => {
