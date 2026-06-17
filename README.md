@@ -43,4 +43,4 @@
 
 ## 결과물
 - **Live Demo**: [[링크 연결]](https://workshop-reserve-erp.onrender.com)
-- **Source Code**: [[GitHub 링크]](https://github.com/sy-lee00/workshop-reserve-erp.git)
+- **Source Code**: [[GitHub 링크]](https://github.com/sy-lee00/workshop-reserve-erp-v2.git)
