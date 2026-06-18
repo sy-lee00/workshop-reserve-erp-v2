@@ -43,4 +43,6 @@
 
 ## 결과물
 - **Live Demo**: [[링크 연결]](https://workshop-reserve-erp.onrender.com)
+  일반 사용자(id/pwd): customer-111@test.com / customer-111
+  관리자(id/pwd): admin@admin.com / qwer1234!
 - **Source Code**: [[GitHub 링크]](https://github.com/sy-lee00/workshop-reserve-erp-v2.git)
