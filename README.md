@@ -1,6 +1,6 @@
 # [공방 클래스 예약 및 통합 운영 관리(ERP) 시스템]  
 >**통합 정보 관리 및 보안 권한 제어를 적용한 공방 운영 ERP 플랫폼 프로젝트**  
-<img width="640" height="360" alt="메인페이지" src="https://github.com/user-attachments/assets/0eed4837-fb6c-4173-a68c-48264be4a284" />
+<img width="640" height="360" alt="메인페이지" src="https://github.com/user-attachments/assets/e1576d8f-038a-4f97-b4eb-ce875ec83726" />
 
 ---
 
